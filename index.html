@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transparent Video Background</title>
+    <style>
+      /* Make sure the canvas fills the entire viewport */
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        height: 100%;
+        width: 100%;
+        background-color: bisque;
+      }
+
+      #videoCanvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        pointer-events: none; /* Ignore mouse events on the canvas */
+        z-index: 999999; /* High z-index for video canvas */
+      }
+
+      /* Additional content on top of the video */
+      #content {
+        position: relative;
+        color: white;
+        text-align: center;
+        font-size: 2rem;
+        padding-top: 20vh;
+        z-index: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Canvas for video background -->
+    <canvas id="videoCanvas"></canvas>
+
+    <!-- Other content that appears over the video background -->
+    <div id="content">
+      <!-- <img src="./Story_Board_02.png" alt="" /> -->
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente
+        perferendis blanditiis unde, eius quo obcaecati architecto laborum
+        voluptatum. Sequi aperiam neque odio rerum exercitationem ratione
+        reiciendis magnam maxime earum sit! Lorem ipsum dolor sit amet
+        consectetur, adipisicing elit. Voluptate animi repellat praesentium rem
+        quod commodi ipsa delectus enim nisi, natus placeat dolor ex repudiandae
+        itaque sed voluptas soluta inventore error. Lorem ipsum dolor sit amet,
+        consectetur adipisicing elit. Deserunt at inventore magnam placeat omnis
+        tenetur nulla optio deleniti perspiciatis quod cum pariatur labore
+        assumenda, error, rerum, provident dicta architecto explicabo. Lorem
+        ipsum dolor sit, amet consectetur adipisicing elit. Magni commodi sint
+        tempore eos odit exercitationem neque culpa soluta iure repudiandae
+        velit non enim explicabo id, deleniti voluptatem harum! Cumque, tempora!
+      </p>
+    </div>
+
+    <!-- Video element (hidden, used as source for canvas) -->
+    <video
+      id="backgroundVideo"
+      autoplay
+      loop
+      muted
+      playsinline
+      style="display: none"
+    >
+      <source
+        src="./vecteezy_10-second-countdown-timer-animation-with-neon-number-text_37004771.mp4"
+        type="video/mp4"
+      />
+      Your browser does not support HTML5 video.
+    </video>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
